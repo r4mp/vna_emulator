@@ -41,6 +41,8 @@ int main(void) {
     double fwd = 0.0;
     double rev = 0.0;
 
+    int input_number = 0;
+
     while(true) {
         incoming_char = getch();
 
@@ -55,9 +57,25 @@ int main(void) {
             case '7':
             case '8':
             case '9':
+                input_number = input_number*10+(incoming_char-'0');
                 break;
-            case 'S':
+            case 'a':
+            case 'A':
+                //start_freq_MHz = ((double)input_number)/1000000;
+                start_freq = input_number;
+                input_number = 0;
+                break;
+            case 'b':
+            case 'B':
+                stop_freq = input_number;
+                input_number = 0;
+                break;
+            case 'n':
+                num_steps = input_number;
+                input_number = 0;
+                break;
             case 's':
+            case 'S':
                 for(int i=0; i < num_steps; i++) {
                     current_freq = start_freq + (stop_freq - start_freq) / (num_steps - 1) * i;
 
@@ -72,8 +90,8 @@ int main(void) {
                 break;
             case '?':
                 // Report current configuration to PC
-                cout << "Start Freq: " << start_freq << endl;
-                cout << "StopFreq: " << start_freq << endl;
+                cout << fixed << "Start Freq: " << start_freq << endl;
+                cout << fixed << "StopFreq: " << stop_freq << endl;
                 cout << "Num Steps: " << num_steps << endl;
                 break;
             default:
