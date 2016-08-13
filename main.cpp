@@ -91,7 +91,7 @@ int main(void) {
             case '?':
                 // Report current configuration to PC
                 cout << fixed << "Start Freq: " << start_freq << endl;
-                cout << fixed << "StopFreq: " << stop_freq << endl;
+                cout << fixed << "Stop Freq: " << stop_freq << endl;
                 cout << "Num Steps: " << num_steps << endl;
                 break;
             default:
