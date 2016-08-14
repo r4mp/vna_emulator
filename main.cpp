@@ -81,7 +81,7 @@ int main(void) {
 
                     cout << fixed << current_freq
                         << ",0,"
-                        << get_rand(0, 12) // VSWR
+                        << get_rand(0, 12) * 1000 // VSWR
                         << ","
                         << fwd
                         << ","
